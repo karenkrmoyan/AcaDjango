@@ -1,0 +1,14 @@
+<h1>Welcome {{user.first_name}} {{ user.last_name}}</h1>
+
+<h2>Courses</h2>
+{% if courses %}
+    <ul>
+    {% for course in courses %}
+        <li><a href="{% url 'courses:detail' course.id %}">{{ course.title }} - {{ course.rating }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No courses available.</p>
+{% endif %}
+<br>
+<a href="{% url 'courses:logout' %}">logout</a>

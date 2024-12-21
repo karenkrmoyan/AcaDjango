@@ -1,0 +1,10 @@
+<form action="{% url 'courses:rate' course.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ course.title }}</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <p>{{ course.description }}</p>
+        <input type="text" name="rate" id="course.id" value="", placeholder="0 to 10">
+    </fieldset>
+    <input type="submit" value="Rate">
+</form>
